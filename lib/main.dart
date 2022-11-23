@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_design/ui_screen.dart';
+import 'package:ui_design/views/expense_bill_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(backgroundColor: Color(0xff383737)),
         scaffoldBackgroundColor: Color(0xff383737),
       ),
-      home: const UIScreen(),
+      home: const ExpenseBillScreen(),
     );
   }
 }

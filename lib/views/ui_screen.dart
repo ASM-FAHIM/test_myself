@@ -145,34 +145,53 @@ class _UIScreenState extends State<UIScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 180,
-                      padding: EdgeInsets.only(
-                        top: 10,
-                        left: 10,
-                      ),
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(20.0)),
-                      child: const Reusable_debit_credit_table_body(),
+                    FittedBox(
+                      child: Container(
+                          width: MediaQuery.of(context).size.width / 2.2,
+                          padding: const EdgeInsets.only(left: 10, top: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: ListView.builder(
+                              physics: const ScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: 3,
+                              itemBuilder: (context, index) {
+                                return Reusable_debit_credit_table_body(
+                                  heading: '0412320145',
+                                  companyName: 'ASM Logistic ltd',
+                                  supplierName: 'Maruf Mohammad',
+                                  costOfList: '123654878965',
+                                );
+                              })),
                     ),
-                    Container(
-                      width: 180,
-                      padding: EdgeInsets.only(
-                        top: 10,
-                        left: 10,
-                      ),
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(20.0)),
-                      child: Reusable_debit_credit_table_body(),
+                    FittedBox(
+                      child: Container(
+                          width: MediaQuery.of(context).size.width / 2.2,
+                          padding: const EdgeInsets.only(left: 10, top: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: ListView.builder(
+                              physics: const ScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: 3,
+                              itemBuilder: (context, index) {
+                                return Reusable_debit_credit_table_body(
+                                  heading: '0412320145',
+                                  companyName: 'ASM Logistic ltd',
+                                  supplierName: 'Maruf Mohammad',
+                                  costOfList: '123654878965',
+                                );
+                              })),
                     ),
                   ],
                 ),
@@ -180,7 +199,9 @@ class _UIScreenState extends State<UIScreen> {
               SizedBox(
                 height: 10,
               ),
-              const Total_DebitCreditField(),
+              Total_DebitCreditField(
+                grandTotal: '13727.27',
+              ),
               const SizedBox(
                 height: 20,
               ),
