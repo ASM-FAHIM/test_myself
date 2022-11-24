@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class ExpenseBillScreen extends StatefulWidget {
@@ -33,7 +32,7 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
       builder: (context, child) => Theme(
         data: ThemeData(
             backgroundColor: Colors.blueAccent,
-            colorScheme: ColorScheme.dark(
+            colorScheme: const ColorScheme.dark(
               primary: Colors.blueAccent,
               surface: Color(0xff064A76),
             )),
@@ -41,10 +40,10 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
       ),
     );
 
-    if (picked != null)
+    if (picked != null) {
       setState(() => _conDate =
           DateFormat("yyyy-MM-dd").format(DateTime.parse(picked.toString())));
-    ;
+    }
   }
 
   String _fromDate = '';
@@ -57,7 +56,7 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
       builder: (context, child) => Theme(
         data: ThemeData(
             backgroundColor: Colors.blueAccent,
-            colorScheme: ColorScheme.dark(
+            colorScheme: const ColorScheme.dark(
               primary: Colors.blueAccent,
               surface: Color(0xff064A76),
             )),
@@ -65,10 +64,10 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
       ),
     );
 
-    if (picked != null)
+    if (picked != null) {
       setState(() => _fromDate =
           DateFormat("yyyy-MM-dd").format(DateTime.parse(picked.toString())));
-    ;
+    }
   }
 
   String _toDate = '';
@@ -81,7 +80,7 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
       builder: (context, child) => Theme(
         data: ThemeData(
             backgroundColor: Colors.blueAccent,
-            colorScheme: ColorScheme.dark(
+            colorScheme: const ColorScheme.dark(
               primary: Colors.blueAccent,
               surface: Color(0xff064A76),
             )),
@@ -89,10 +88,10 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
       ),
     );
 
-    if (picked != null)
+    if (picked != null) {
       setState(() => _toDate =
           DateFormat("yyyy-MM-dd").format(DateTime.parse(picked.toString())));
-    ;
+    }
   }
 
   int length = 1;
@@ -111,203 +110,209 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
           onTap: () {
             Navigator.pop(context);
           },
+          child: const Icon(
+            Icons.arrow_back,
+            size: 25,
+            color: Colors.white,
+          ),
         ),
         centerTitle: true,
-        title: Text('Expense Bill'),
+        title: const Text('Expense Bill Apply'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Card(
-                elevation: 5,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
-                child: Container(
-                  height: 250,
-                  width: 380,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 250,
-                        padding:
-                            const EdgeInsets.only(left: 10, top: 10, right: 10),
-                        //margin: const EdgeInsets.only(left: 10, right: 10),
-                        child: TextFormField(
-                          controller: convController,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1.5,
-                                color: Colors.black,
-                              ),
-                              borderRadius: BorderRadius.circular(20.0),
+      body: Container(
+        child: Column(
+          children: [
+            Card(
+              elevation: 5,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              child: Container(
+                height: 250,
+                width: 380,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 250,
+                      padding:
+                          const EdgeInsets.only(left: 10, top: 10, right: 10),
+                      //margin: const EdgeInsets.only(left: 10, right: 10),
+                      child: TextFormField(
+                        controller: convController,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1.5,
+                              color: Colors.black,
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1.5,
-                                color: Colors.white,
-                              ),
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            // prefixIcon: icon,
-                            filled: true,
-                            hintText: 'Enter Convey No',
-                            hintStyle: const TextStyle(
-                                color: Colors.black54,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600),
-                            fillColor: Colors.blue.withOpacity(0.2),
-                            labelText: 'Conv No',
-                            labelStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w800),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1.5,
+                              color: Colors.white,
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          // prefixIcon: icon,
+                          filled: true,
+                          hintText: 'Enter Convey No',
+                          hintStyle: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600),
+                          fillColor: Colors.blue.withOpacity(0.2),
+                          labelText: 'Conv No',
+                          labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800),
                         ),
                       ),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              _showFromDatePicker();
-                            },
-                            child: Container(
-                              width: 250,
-                              padding: const EdgeInsets.only(
-                                  left: 10, top: 10, right: 10),
-                              //margin: const EdgeInsets.only(left: 10, right: 10),
-                              child: TextFormField(
-                                controller: convDateController,
-                                onTap: () {
-                                  _showConvDatePicker();
-                                  convDateController.text = _conDate;
-                                },
-                                onSaved: (value) {
-                                  convDateController.text = value.toString();
-                                },
-                                decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 1.5,
-                                      color: Colors.black,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 1.5,
-                                      color: Colors.white,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  prefixIcon: GestureDetector(
-                                      onTap: () {
-                                        _showFromDatePicker();
-                                        convDateController.text = _fromDate;
-                                      },
-                                      child: Icon(
-                                        Icons.calendar_today,
-                                        color: Colors.black,
-                                      )),
-                                  filled: true,
-                                  hintText: _conDate,
-                                  hintStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600),
-                                  fillColor: Colors.blue.withOpacity(0.2),
-                                  labelText: 'Conv Date',
-                                  labelStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.green),
-                              onPressed: () {
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(const SnackBar(
-                                  duration: Duration(seconds: 1),
-                                  content: Text(
-                                    "Bill added successfully",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ));
+                    ),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            _showFromDatePicker();
+                          },
+                          child: Container(
+                            width: 250,
+                            padding: const EdgeInsets.only(
+                                left: 10, top: 10, right: 10),
+                            //margin: const EdgeInsets.only(left: 10, right: 10),
+                            child: TextFormField(
+                              controller: convDateController,
+                              onTap: () {
+                                _showConvDatePicker();
+                                convDateController.text = _conDate;
                               },
-                              child: const Text(
-                                'Confirm',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ))
-                        ],
-                      ),
-                      Container(
-                        width: 250,
-                        padding:
-                            const EdgeInsets.only(left: 10, top: 10, right: 10),
-                        //margin: const EdgeInsets.only(left: 10, right: 10),
-                        child: TextFormField(
-                          controller: justController,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1.5,
-                                color: Colors.black,
+                              onSaved: (value) {
+                                convDateController.text = value.toString();
+                              },
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    width: 1.5,
+                                    color: Colors.black,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    width: 1.5,
+                                    color: Colors.white,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    _showFromDatePicker();
+                                    convDateController.text = _fromDate;
+                                  },
+                                  child: const Icon(
+                                    Icons.calendar_today,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                filled: true,
+                                hintText: _conDate,
+                                hintStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600),
+                                fillColor: Colors.blue.withOpacity(0.2),
+                                labelText: 'Conv Date',
+                                labelStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800),
                               ),
-                              borderRadius: BorderRadius.circular(20.0),
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1.5,
-                                color: Colors.white,
-                              ),
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            // prefixIcon: icon,
-                            filled: true,
-                            hintText: 'Enter your Justification',
-                            hintStyle: const TextStyle(
-                                color: Colors.black54,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600),
-                            fillColor: Colors.blue.withOpacity(0.2),
-                            labelText: 'Justification',
-                            labelStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w800),
                           ),
                         ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        ElevatedButton(
+                            style:
+                                ElevatedButton.styleFrom(primary: Colors.green),
+                            onPressed: () {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                duration: Duration(seconds: 1),
+                                content: Text(
+                                  "Bill added successfully",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ));
+                            },
+                            child: const Text(
+                              'Confirm',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ))
+                      ],
+                    ),
+                    Container(
+                      width: 250,
+                      padding:
+                          const EdgeInsets.only(left: 10, top: 10, right: 10),
+                      //margin: const EdgeInsets.only(left: 10, right: 10),
+                      child: TextFormField(
+                        controller: justController,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1.5,
+                              color: Colors.black,
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1.5,
+                              color: Colors.white,
+                            ),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          // prefixIcon: icon,
+                          filled: true,
+                          hintText: 'Enter your Justification',
+                          hintStyle: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600),
+                          fillColor: Colors.blue.withOpacity(0.2),
+                          labelText: 'Justification',
+                          labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800),
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: Container(
                 height: MediaQuery.of(context).size.height / 2,
                 width: 400,
                 child: ListView.builder(
@@ -329,9 +334,10 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Padding(
-                                  padding: EdgeInsets.only(left: 20, top: 10),
+                                  padding: EdgeInsets.only(
+                                      left: 20, top: 10, bottom: 10),
                                   child: Text(
-                                    'Details for : CON-000156',
+                                    'Details for Expense Bill',
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -664,15 +670,15 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
                       );
                     }),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           increaseLength();
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           size: 30,
         ),
