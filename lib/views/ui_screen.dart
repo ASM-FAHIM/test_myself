@@ -1,5 +1,6 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_design/views/test_screen.dart';
 import 'package:ui_design/widgets/custom_row_buttons.dart';
 import 'package:ui_design/widgets/debit_credit_table_body.dart';
 import 'package:ui_design/widgets/total_debit_credit_field.dart';
@@ -81,7 +82,23 @@ class _UIScreenState extends State<UIScreen> {
                 ),
               )
             ],
-          )
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TestScreen(
+                            isVisible: true,
+                            value: 1,
+                          )));
+            },
+            child: Icon(
+              Icons.add,
+              size: 30,
+              color: Colors.white,
+            ),
+          ),
         ],
         elevation: 0,
       ),

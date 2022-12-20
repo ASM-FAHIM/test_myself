@@ -243,6 +243,7 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
                             style:
                                 ElevatedButton.styleFrom(primary: Colors.green),
                             onPressed: () {
+                              Navigator.pop(context);
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
                                 duration: Duration(seconds: 1),
@@ -315,11 +316,13 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
               child: Container(
                 height: MediaQuery.of(context).size.height / 2,
                 width: 400,
+                decoration: BoxDecoration(),
                 child: ListView.builder(
                     itemCount: length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
+                        padding: const EdgeInsets.only(
+                            left: 5, bottom: 10, right: 5),
                         child: Card(
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -328,7 +331,7 @@ class _ExpenseBillScreenState extends State<ExpenseBillScreen> {
                             width: 380,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Colors.grey.withOpacity(0.7)),
+                                color: Colors.grey.withOpacity(0.5)),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,

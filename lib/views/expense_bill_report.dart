@@ -44,7 +44,7 @@ class _ExpenseBillReportScreenState extends State<ExpenseBillReportScreen> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: ListView.builder(
           itemCount: 10,
           itemBuilder: (_, index) => Column(
@@ -53,9 +53,10 @@ class _ExpenseBillReportScreenState extends State<ExpenseBillReportScreen> {
                 elevation: 5,
                 shadowColor: Colors.blue,
                 color: Colors.white,
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0)),
-                clipBehavior: Clip.antiAlias,
+                clipBehavior: Clip.hardEdge,
                 child: ExpansionTile(
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,16 +67,23 @@ class _ExpenseBillReportScreenState extends State<ExpenseBillReportScreen> {
                           Text(
                             '24 Nov 2022',
                             style: TextStyle(
-                              fontSize: 18,
-                              //color: Color(0xff074974),
-                            ),
+                                fontSize: 15, fontWeight: FontWeight.bold
+                                //color: Color(0xff074974),
+                                ),
                           ),
                           Text(
                             'Conv No: 002145',
                             style: TextStyle(
-                              fontSize: 18,
-                              //color: Color(0xff074974),
-                            ),
+                                fontSize: 15, fontWeight: FontWeight.bold
+                                //color: Color(0xff074974),
+                                ),
+                          ),
+                          Text(
+                            '1200 TK',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold
+                                //color: Color(0xff074974),
+                                ),
                           ),
                           //Text(" ${snapshot.data![index].status}")
                         ],
@@ -89,77 +97,96 @@ class _ExpenseBillReportScreenState extends State<ExpenseBillReportScreen> {
                       )
                     ],
                   ),
+                  tilePadding: const EdgeInsets.only(
+                      left: 20, top: 10, bottom: 10, right: 10),
                   expandedCrossAxisAlignment: CrossAxisAlignment.start,
                   expandedAlignment: Alignment.centerLeft,
-                  childrenPadding: const EdgeInsets.only(left: 10, top: 10),
-                  children: const <Widget>[
-                    Text(
-                      'Dhaka to Gazipur',
-                      style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold,
-                        //color: Color(0xff074974),
-                      ),
+                  childrenPadding: const EdgeInsets.only(left: 10, top: 20),
+                  textColor: Colors.red.withOpacity(0.7),
+                  iconColor: Colors.red.withOpacity(0.7),
+                  collapsedTextColor: Colors.black,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Dhaka to Gazipur',
+                          style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold,
+                            //color: Color(0xff074974),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: Text(
+                            '20 Nov - 23 Nov',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.bold
+                                //color: Color(0xff074974),
+                                ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      '20 Nov 2022 TO 23 Nov 2022',
+                    const Text(
+                      'Sales Force App presentation',
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                          //color: Color(0xff074974),
+                          ),
+                    ),
+                    const Text(
+                      'Uber Bill and CNG Bill',
                       style: TextStyle(
                         fontSize: 15,
                         //color: Color(0xff074974),
                       ),
                     ),
-                    Text(
-                      'Sales Force App presentation',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold
-                          //color: Color(0xff074974),
-                          ),
-                    ),
-                    Text(
+                    const Text(
                       '1200 TK',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red),
                     ),
-                    Text(
-                      'Uber Bill and CNG Bill',
-                      style: TextStyle(
-                        fontSize: 18,
-                        //color: Color(0xff074974),
-                      ),
-                    ),
-                    Text(
+                    const Text(
                       'Status: Confirmed',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
                         //color: Color(0xff074974),
                       ),
                     ),
-                    Text(
-                      'Approved/Recommended By: ABCD',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold
-                          //color: Color(0xff074974),
-                          ),
+                    Container(
+                      width: 400,
+                      child: Text(
+                        'Approved/Recommended By: Mahmudul Hasan Soikot',
+                        style:
+                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                                //color: Color(0xff074974),
+                                ),
+                      ),
                     ),
-                    Text(
-                      'Approved By: ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold
-                          //color: Color(0xff074974),
-                          ),
+                    Container(
+                      width: 400,
+                      child: Text(
+                        'Approved By: Abul Kalam Azad',
+                        style:
+                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                                //color: Color(0xff074974),
+                                ),
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],
           ),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
         ),
       ),
     );
